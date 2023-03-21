@@ -1,0 +1,47 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button *ngIf="loggedIn" mat-icon-button (click)="toggleSideBar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <button mat-icon-button (click)="toggleSideBar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>
+      <a mat-icon-button routerLink="/"
+        >Transit Hassle pickup and drop service</a
+      >
+    </span>
+    <span class="example-spacer"></span>
+
+    <span class="example-spacer"></span>
+    <button  *ngIf="loggedIn" mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>person_outline</mat-icon>
+    </button>
+    <button
+      *ngIf="!loggedIn"
+      mat-raised-button
+      color="white"
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+      routerLink="/login"
+    >
+      login
+    </button>
+    <div style="margin-left: 5px"></div>
+    <button
+      *ngIf="!loggedIn"
+      routerLink="/clientregistration"
+      mat-raised-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+    >
+      Register
+    </button>
+    <mat-menu #menu="matMenu">
+      <button *ngIf="loggedIn" mat-menu-item (click)="logoutUser()">
+        <mat-icon>exit_to_app</mat-icon>
+        Sign out
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
