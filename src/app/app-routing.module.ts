@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AdminGuard } from './services/admin.guard';
 import { AuthGuard } from './services/auth.guard';
 import { RoleGuard } from './services/role.guard';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -25,6 +26,11 @@ const routes: Routes = [
     path: 'clientdashboard',
     component: ClientDashboardComponent,
     canActivate: [AuthGuard, RoleGuard],
+  },
+  {
+    path: 'side',
+    component: SidebarComponent,
+
   },
 ];
 

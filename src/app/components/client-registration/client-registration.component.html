@@ -1,113 +1,127 @@
 <div class="container mt">
-
-  <div class="col">
-    <p>You select your team {{ selectedTeam }} using viewChild</p>
-      <select #teams (change)="onSelected(teams.value)">
-        <option default value="">select a role</option>
-        <option>Driver</option>
-        <option>Client</option>
-      </select>
-    </div>
-  <form #registrationForm="ngForm">
-    <h1>Registration</h1>
-    <mat-form-field appearance="fill">
-      <mat-label>Name</mat-label>
-      <input matInput name="name" [(ngModel)]="name" required />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Email</mat-label>
-      <input matInput name="email" [(ngModel)]="email" required email />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Mobile Number</mat-label>
-      <input matInput name="text" [(ngModel)]="mobileNo" required  />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Password</mat-label>
-      <input
-        matInput
-        name="password"
-        [(ngModel)]="password"
-        type="password"
-        required
-      />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Re-enter Password</mat-label>
-      <input
-        matInput
-        name="rePassword"
-        [(ngModel)]="rePassword"
-        type="password"
-        required
-      />
-    </mat-form-field>
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="submit(registrationForm)"
+<mat-card class="example-card">
+  <mat-card-header>
+    <h3 style="margin: 15px">Please select Role</h3>
+    <br />
+    <select
+      style="margin-bottom: 15px"
+      #teams
+      (change)="onSelected(teams.value)"
     >
-      Submit
-    </button>
-  </form>
+      <option default value="">select a role</option>
+      <option value="true">Driver</option>
+      <option value="false">Client</option>
+    </select>
+  </mat-card-header>
+  <mat-card-content>
+    <form *ngIf="teams.value == 'false'" #registrationForm="ngForm" style="margin-right: 30px;">
+      <h1>Registration</h1>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput name="name" [(ngModel)]="name" required />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput name="email" [(ngModel)]="email" required email />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Mobile Number</mat-label>
+        <input matInput name="text" [(ngModel)]="mobileNo" required />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          name="password"
+          [(ngModel)]="password"
+          type="password"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Re-enter Password</mat-label>
+        <input
+          matInput
+          name="rePassword"
+          [(ngModel)]="rePassword"
+          type="password"
+          required
+        />
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="submit(registrationForm)"
+      >
+        Submit
+      </button>
+      <button
+        mat-raised-button
+        style="background-color: rgb(211, 211, 211); margin-left: 15px"
+        routerLink="/"
+      >
+        Cancel
+      </button>
+    </form>
 
-  <form #registrationFormdriver="ngForm">
-    <h1>Registration</h1>
-    <mat-form-field appearance="fill">
-      <mat-label>Name</mat-label>
-      <input matInput name="name" [(ngModel)]="dname" required />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Email</mat-label>
-      <input matInput name="email" [(ngModel)]="demail" required email />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Mobile Number</mat-label>
-      <input matInput name="text" [(ngModel)]="dmobileNo" required  />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Password</mat-label>
-      <input
-        matInput
-        name="password"
-        [(ngModel)]="dpassword"
-        type="password"
-        required
-      />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Re-enter Password</mat-label>
-      <input
-        matInput
-        name="rePassword"
-        [(ngModel)]="drePassword"
-        type="password"
-        required
-      />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>VehicleName</mat-label>
-      <input matInput name="name" [(ngModel)]="vehiclename" required />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>VehicleNumber</mat-label>
-      <input matInput name="name" [(ngModel)]="VehicleNumber" required />
-    </mat-form-field>
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="submit(registrationForm)"
-    >
-    
-      Submit
-    </button>
+    <form *ngIf="teams.value == 'true'" #registrationFormdriver="ngForm">
+      <h1>Registration</h1>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput name="name" [(ngModel)]="dname" required />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput name="email" [(ngModel)]="demail" required email />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Mobile Number</mat-label>
+        <input matInput name="text" [(ngModel)]="dmobileNo" required />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          name="password"
+          [(ngModel)]="dpassword"
+          type="password"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Re-enter Password</mat-label>
+        <input
+          matInput
+          name="rePassword"
+          [(ngModel)]="drePassword"
+          type="password"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>VehicleName</mat-label>
+        <input matInput name="name" [(ngModel)]="vehiclename" required />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>VehicleNumber</mat-label>
+        <input matInput name="name" [(ngModel)]="VehicleNumber" required />
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="submit(registrationFormdriver)"
+      >
+        Submit
+      </button>
 
-    <button
-    mat-raised-button
-    style="background-color: rgb(211, 211, 211);"
-    routerLink="/"
-  >
-    Cancel
-  </button>
-  </form>
+      <button
+        mat-raised-button
+        style="background-color: rgb(231, 231, 231); margin-left: 15px"
+        routerLink="/"
+      >
+        Cancel
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
 </div>

@@ -8,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class ClientDashboardComponent implements OnInit {
 
   constructor() { }
-
+  sideBarOpen = true;
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
   ngOnInit(): void {
   }
 
+  
 }

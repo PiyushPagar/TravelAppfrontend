@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
             this.loginService.setName(response.result.name);
             console.log(this.loginService.isLoggedIn());
             this.loginService.setEmail(response.result.email);
-            this.loginService.setName(response.result.username);
             if(response.result.role=="ROLE_ADMIN"){
               window.location.href="/driverdashboard";
             }

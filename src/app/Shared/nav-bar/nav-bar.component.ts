@@ -7,7 +7,6 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  show=false;
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   loggedIn=false;
   constructor(private loginService:LoginService) { }
@@ -32,3 +31,8 @@ export class NavBarComponent implements OnInit {
   }
 
 }
+
+
+
+
+

@@ -22,15 +22,35 @@ export class ClientRegistrationComponent implements OnInit {
   dpassword: string = '';
   drePassword: string = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   selectedTeam = '';
-	onSelected(value:string): void {
-		this.selectedTeam = value;
-	}
+  onSelected(value: string): void {
+    this.selectedTeam = value;
+  }
+
+  submitdriver(registrationForm: NgForm) {
+    if (registrationForm.valid && this.password === this.rePassword) {
+      const body = {
+        name: this.name,
+        email: this.email,
+        mobileNo: this.mobileNo,
+        password: this.password,
+      };
+      this.http.post('http://localhost:9190/api/auth/signup', body).subscribe(
+        (response: any) => {
+          console.log(response.message);
+          alert(response.message);
+        },
+        (error) => {
+          console.log(error);
+          alert(error.error.message);
+        }
+      );
+    }
+  }
 
   submit(registrationForm: NgForm) {
     if (registrationForm.valid && this.password === this.rePassword) {
@@ -38,11 +58,22 @@ export class ClientRegistrationComponent implements OnInit {
         name: this.name,
         email: this.email,
         mobileNo: this.mobileNo,
-        password: this.password
+        password: this.password,
       };
-      this.http.post('http://localhost:9190/api/auth/signup', body).subscribe(response => {
-        console.log(response);
-      });
+      this.http.post('http://localhost:9190/api/auth/signup', body).subscribe(
+        (response: any) => {
+          console.log(response.message);
+          alert(response.message);
+        },
+        (error) => {
+          console.log(error);
+          alert(error.error.message);
+        }
+      );
     }
+  }
+
+  clear() {
+    this.name=""; this.email=""; this.mobileNo=""; this.password="";
   }
 }
