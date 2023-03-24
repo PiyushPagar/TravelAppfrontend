@@ -30,7 +30,7 @@ export class LoginService {
     return localStorage.getItem("role");
   }
 
-  setName(name: any){
+  setName(name: string){
     localStorage.setItem("name",name );
     return true;
   }
@@ -38,7 +38,7 @@ export class LoginService {
     return localStorage.getItem("name");
   }
 
-  setEmail(email: any){
+  setEmail(email: string){
     localStorage.setItem("email",email );
     return true;
   }

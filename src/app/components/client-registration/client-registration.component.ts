@@ -32,17 +32,20 @@ export class ClientRegistrationComponent implements OnInit {
   }
 
   submitdriver(registrationForm: NgForm) {
-    if (registrationForm.valid && this.password === this.rePassword) {
+    if (registrationForm.valid && this.dpassword === this.drePassword) {
       const body = {
-        name: this.name,
-        email: this.email,
-        mobileNo: this.mobileNo,
-        password: this.password,
+        name: this.dname,
+        email: this.demail,
+        mobileNo: this.dmobileNo,
+        password: this.dpassword,
+        vehicalName: this.vehiclename,
+        vehicalNo: this.VehicleNumber
       };
-      this.http.post('http://localhost:9190/api/auth/signup', body).subscribe(
+      this.http.post('http://localhost:9190/api/auth/driversignup', body).subscribe(
         (response: any) => {
           console.log(response.message);
           alert(response.message);
+          window.location.href="/login";
         },
         (error) => {
           console.log(error);

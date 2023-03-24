@@ -8,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor() { }
-
+  sideBarOpen = false;
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
   ngOnInit(): void {
   }
 

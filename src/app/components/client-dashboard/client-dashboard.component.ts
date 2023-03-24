@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalComponent } from 'src/app/Global/GlobalVarible';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-client-dashboard',
@@ -7,12 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService:LoginService) { }
   sideBarOpen = true;
-  sideBarToggler() {
+  check :string="";
+  sideBarToggler(): void {
     this.sideBarOpen = !this.sideBarOpen;
   }
   ngOnInit(): void {
+
+    // this.check = JSON.parse(localStorage.getItem("name"));
+
   }
 
   

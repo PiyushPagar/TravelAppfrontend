@@ -1,2 +1,54 @@
-<app-nav-bar></app-nav-bar>
+<app-nav-bar (toggleSideBarForMe)="sideBarToggler()"></app-nav-bar>
 
+<mat-drawer-container>
+  <mat-drawer mode="side" [opened]="sideBarOpen">
+    <app-sidebar></app-sidebar>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="box">
+      <h1>Welcome to Driver Dashboard</h1>
+      <br />
+      <h3>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+        maxime rerum unde blanditiis doloremque dolores laudantium, soluta
+        repudiandae architecto ullam, quaerat doloribus distinctio odio
+        quibusdam? Itaque provident deleniti sunt autem. Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Exercitationem totam neque esse
+        reprehenderit, eius illo aut nobis eveniet id doloribus laudantium
+        accusamus. Nostrum ipsa laboriosam voluptatibus! Quam officia neque
+        accusamus non quidem dicta, provident eaque nisi, ad natus est tempora
+        vero perspiciatis iste magni. Temporibus, error eum porro natus
+        molestiae culpa, voluptate fuga, sint quae reprehenderit tenetur debitis
+        earum maiores assumenda dolorum facilis quidem. Culpa doloribus totam
+        commodi, ipsam eum molestias sunt laudantium fugiat ea unde quisquam
+        eaque quidem natus sint perspiciatis facere iusto suscipit dolores omnis
+        iste, officiis dignissimos sequi? Vitae fugiat dolores doloribus saepe
+        veritatis? Obcaecati minima aliquid maxime quo hic, dolor magnam quasi
+        magni inventore, illo beatae quibusdam officia maiores? Dicta corporis
+        nemo enim non incidunt consequuntur vel repellat vitae. Id esse vero
+        eligendi! Quisquam iste pariatur sed placeat deleniti maiores explicabo
+        velit doloremque labore nisi aut ex sit architecto illo, id ducimus,
+        ipsam quas magnam? Architecto ipsum reprehenderit earum repellendus
+        sunt, harum doloremque fugiat numquam commodi et distinctio est, officia
+        ab dolorem eligendi nam eius rerum fugit quaerat dolores tenetur dolor?
+        Ducimus ullam nostrum similique cupiditate nihil provident amet, quaerat
+        beatae impedit sequi dignissimos rem itaque non voluptatibus in
+        reiciendis dolorem ratione obcaecati. Suscipit at accusantium,
+        consequuntur dignissimos iusto quia quaerat ad animi dolorum nobis
+        impedit officia odit iure eligendi voluptates molestiae harum
+        exercitationem voluptas. Doloribus officia doloremque distinctio.
+        architecto illo, id ducimus, ipsam quas magnam? Architecto ipsum
+        reprehenderit earum repellendus sunt, harum doloremque fugiat numquam
+        commodi et distinctio est, officia ab dolorem eligendi nam eius rerum
+        fugit quaerat dolores tenetur dolor? Ducimus ullam nostrum similique
+        cupiditate nihil provident amet, quaerat beatae impedit sequi
+        dignissimos rem itaque non voluptatibus in reiciendis dolorem ratione
+        obcaecati.distinctio. quaerat beatae impedit sequi dignissimos rem
+        itaque non voluptatibus in reiciendis dolorem ratione
+        obcaecati.distinctio.
+      </h3>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+<app-footer></app-footer>

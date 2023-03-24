@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalComponent } from 'src/app/Global/GlobalVarible';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit {
             this.loginService.setName(response.result.name);
             console.log(this.loginService.isLoggedIn());
             this.loginService.setEmail(response.result.email);
-            if(response.result.role=="ROLE_ADMIN"){
+            if(response.result.role=="ROLE_DRIVER"){
               window.location.href="/driverdashboard";
             }
             if(response.result.role=="ROLE_USER"){
