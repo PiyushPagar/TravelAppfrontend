@@ -1,0 +1,104 @@
+<h1 mat-dialog-title></h1>
+<div mat-dialog-content>
+  <form [formGroup]="userForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Trip Start</mat-label>
+      <input
+        [(ngModel)]="newTripCredentials.tripStartFrom"
+        required
+        formControlName="tripStartFrom"
+        matInput
+        placeholder="eg : xyz"
+        type="text"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Trip End</mat-label>
+      <input
+        [(ngModel)]="newTripCredentials.tripEndTo"
+        required
+        formControlName="tripEndTo"
+        matInput
+        placeholder="eg : xyz"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Trip StartTime</mat-label>
+      <input
+        [(ngModel)]="newTripCredentials.tripStartTime"
+        required
+        formControlName="tripStartTime"
+        matInput
+        placeholder=""
+        type="email"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Trip EndTime</mat-label>
+      <input
+        [(ngModel)]="newTripCredentials.tripEndTime"
+        required
+        formControlName="tripEndTime"
+        matInput
+        placeholder="eg : 1234567890"
+        type="text"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Capacity</mat-label>
+      <input
+        [(ngModel)]="newTripCredentials.capacity"
+        required
+        formControlName="capacity"
+        matInput
+        placeholder="eg : "
+        type="text"
+      />
+    </mat-form-field>
+     <mat-form-field appearance="outline">
+      <mat-label>Price</mat-label>
+      <input
+        [(ngModel)]="newTripCredentials.tripPrice"
+        required
+        formControlName="tripPrice"
+        matInput
+        placeholder="eg : "
+        type="text"
+      />
+    </mat-form-field>
+     <mat-form-field appearance="outline">
+      <mat-label>Vehicle Name</mat-label>
+      <input
+        [(ngModel)]="newTripCredentials.vehicleName"
+        required
+        formControlName="vehicleName"
+        matInput
+        placeholder="eg : "
+        type="text"
+      />
+    </mat-form-field>
+     <mat-form-field appearance="outline">
+      <mat-label>Vehicle Details</mat-label>
+      <input
+        [(ngModel)]="newTripCredentials.vehicleDetails"
+        required
+        formControlName="vehicleDetails"
+        matInput
+        placeholder="eg : "
+        type="text"
+      />
+    </mat-form-field>
+    
+  </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="primary" mat-dialog-close>Close</button>
+  <button
+    style="margin-left: 10px"
+    mat-raised-button
+    color="primary"
+    (click)="addNewTrip()"
+  >
+   AddTrip
+  </button>
+</div>

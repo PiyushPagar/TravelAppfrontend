@@ -9,9 +9,14 @@ import { LoginService } from 'src/app/services/login.service';
 export class SidebarComponent implements OnInit {
 
   constructor(private loginService:LoginService) { }
-  userEmail: any ;
-  userName: any;
+ 
+  userName=localStorage.getItem('name');
+  userEmail=localStorage.getItem('email');
+  admin=false;
+  user=false;
   ngOnInit(): void {
+    this.admin=this.loginService.isadmin();
+    this.user=!this.loginService.isadmin();
     this.setUseremail();
   }
 

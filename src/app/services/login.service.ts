@@ -64,6 +64,19 @@ export class LoginService {
     }
   }
 
+  isadmin()
+  {
+    var token = this.getRole();
+    if(token=="ROLE_DRIVER")
+    {
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+
+
   logout(){
     localStorage.clear();
     return true;

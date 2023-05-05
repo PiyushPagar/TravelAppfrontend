@@ -1,0 +1,40 @@
+<div>
+  <mat-list>
+    <h3 style="margin-bottom: 5px; text-align: center; font-weight: bold">
+      Trip Details
+    </h3>
+    <mat-list-item>Startig From:-{{ viewRide.tripStartFrom }}</mat-list-item>
+    <mat-list-item>Ending To:-{{ viewRide.tripEndTo }}</mat-list-item>
+    <mat-list-item
+      >Start Time:-{{
+        viewRide.tripStartTime | date : "dd/MM/yyyy hh:mm:ss"
+      }}</mat-list-item
+    >
+    <mat-list-item>Vehicle Name = {{ viewRide.vehicleName }}</mat-list-item>
+    <mat-list-item>Vehicle Capacity = {{ viewRide.capacity }}</mat-list-item>
+    <mat-list-item>Trip Price = {{ viewRide.tripPrice }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <h4 style="margin-bottom: 5px; text-align: center; font-weight: 600">
+      Driver Details
+    </h4>
+    <mat-list-item>Name:-{{ DriverDetails.name }}</mat-list-item>
+    <mat-list-item>Email:-{{ DriverDetails.email }}</mat-list-item>
+    <mat-list-item>MobileNo:-{{ DriverDetails.mobileNo }}</mat-list-item>
+    <mat-list-item (click)="viewImage()"
+      >Licence:-<strong>View Licence</strong></mat-list-item>
+    <mat-list-item><strong>Enter Pickup Location</strong> <p style="color: red;">*</p></mat-list-item>
+    <mat-list-item style=" font-size: 20px;"><input type="text" [(ngModel)]="myValue" /></mat-list-item>    
+  </mat-list>
+
+  <div mat-dialog-action [align]="'end'" style="margin-top: 10px;">
+    <button mat-raised-button color=grey mat-dialog-close>Close</button>
+    <button
+      style="margin-left: 10px"
+      mat-raised-button
+      color="primary"
+      (click)="BookRide(viewRide)"
+    >
+      BookRide
+    </button>
+  </div>
+</div>

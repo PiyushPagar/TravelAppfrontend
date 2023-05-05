@@ -4,6 +4,8 @@ export class GlobalComponent {
    public static username:string="try"
    public static userId:string=""
    public static useremail:string=""
-
+   public static tripstatusinitial:string="intial"
+//npm install ngx-bootstrap --save
+//rm -rf node_modules
       
    }

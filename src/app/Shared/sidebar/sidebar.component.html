@@ -2,21 +2,21 @@
     <div class="profile-card">
        
         <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Soufiane FADIL">
+       
         <div class="header">
-            <h2>Soufiane FADIL</h2>
-            <h4>example@email.com</h4>
+            <h2>{{userName}}</h2>
+            <p *ngIf="user" >User</p>
+            <p *ngIf="admin" >Driver</p>
+            <h4>{{userEmail}}</h4>
         </div>
     </div>
 
     <mat-divider></mat-divider>
 
     <h2 matSubheader>Pages</h2>
-
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin">Dashboard</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/users">User</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/inventory">Inventory</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/notification">Notification</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/order">Order</a>
+    <a *ngIf="user" mat-list-item routerLinkActive="list-item-active" routerLink="/clientdashboard">Home</a>
+    <a *ngIf="admin" mat-list-item routerLinkActive="list-item-active" routerLink="/driverdashboard">Dashboard</a>
+    <a *ngIf="user" mat-list-item routerLinkActive="list-item-active" routerLink="/userallbookings">Bookings</a>
     <mat-divider></mat-divider>
 
     <h2 matSubheader>Tools</h2>

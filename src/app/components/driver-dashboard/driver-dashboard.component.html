@@ -6,47 +6,113 @@
   </mat-drawer>
   <mat-drawer-content>
     <div class="box">
-      <h1>Welcome to Driver Dashboard</h1>
-      <br />
-      <h3>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-        maxime rerum unde blanditiis doloremque dolores laudantium, soluta
-        repudiandae architecto ullam, quaerat doloribus distinctio odio
-        quibusdam? Itaque provident deleniti sunt autem. Lorem ipsum dolor sit
-        amet consectetur adipisicing elit. Exercitationem totam neque esse
-        reprehenderit, eius illo aut nobis eveniet id doloribus laudantium
-        accusamus. Nostrum ipsa laboriosam voluptatibus! Quam officia neque
-        accusamus non quidem dicta, provident eaque nisi, ad natus est tempora
-        vero perspiciatis iste magni. Temporibus, error eum porro natus
-        molestiae culpa, voluptate fuga, sint quae reprehenderit tenetur debitis
-        earum maiores assumenda dolorum facilis quidem. Culpa doloribus totam
-        commodi, ipsam eum molestias sunt laudantium fugiat ea unde quisquam
-        eaque quidem natus sint perspiciatis facere iusto suscipit dolores omnis
-        iste, officiis dignissimos sequi? Vitae fugiat dolores doloribus saepe
-        veritatis? Obcaecati minima aliquid maxime quo hic, dolor magnam quasi
-        magni inventore, illo beatae quibusdam officia maiores? Dicta corporis
-        nemo enim non incidunt consequuntur vel repellat vitae. Id esse vero
-        eligendi! Quisquam iste pariatur sed placeat deleniti maiores explicabo
-        velit doloremque labore nisi aut ex sit architecto illo, id ducimus,
-        ipsam quas magnam? Architecto ipsum reprehenderit earum repellendus
-        sunt, harum doloremque fugiat numquam commodi et distinctio est, officia
-        ab dolorem eligendi nam eius rerum fugit quaerat dolores tenetur dolor?
-        Ducimus ullam nostrum similique cupiditate nihil provident amet, quaerat
-        beatae impedit sequi dignissimos rem itaque non voluptatibus in
-        reiciendis dolorem ratione obcaecati. Suscipit at accusantium,
-        consequuntur dignissimos iusto quia quaerat ad animi dolorum nobis
-        impedit officia odit iure eligendi voluptates molestiae harum
-        exercitationem voluptas. Doloribus officia doloremque distinctio.
-        architecto illo, id ducimus, ipsam quas magnam? Architecto ipsum
-        reprehenderit earum repellendus sunt, harum doloremque fugiat numquam
-        commodi et distinctio est, officia ab dolorem eligendi nam eius rerum
-        fugit quaerat dolores tenetur dolor? Ducimus ullam nostrum similique
-        cupiditate nihil provident amet, quaerat beatae impedit sequi
-        dignissimos rem itaque non voluptatibus in reiciendis dolorem ratione
-        obcaecati.distinctio. quaerat beatae impedit sequi dignissimos rem
-        itaque non voluptatibus in reiciendis dolorem ratione
-        obcaecati.distinctio.
-      </h3>
+      <div>
+        <button mat-raised-button (click)="addNewTrip()" color="primary">
+          Add New Trip
+        </button>
+        <p></p>
+      </div>
+    </div>
+    <div class="container">
+      <div style="margin-top: 10px">
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource" matSort>
+            <!-- ID Column -->
+            <ng-container matColumnDef="Id">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+              <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+            </ng-container>
+
+            <!-- Progress Column -->
+            <ng-container matColumnDef="tripStartTime">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Start Time
+              </th>
+              <td mat-cell *matCellDef="let row">{{ row.tripStartTime | date : "d/M/yy h:mm a" }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="tripEndTime">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                End Time
+              </th>
+              <td mat-cell *matCellDef="let row">{{ row.tripEndTime | date : "d/M/yy h:mm a" }}</td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="tripStartFrom">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Starting From</th>
+              <td mat-cell *matCellDef="let row">{{ row.tripStartFrom }}</td>
+            </ng-container>
+            <ng-container matColumnDef="tripEndTo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+               End To
+              </th>
+              <td mat-cell *matCellDef="let row">{{ row.tripEndTo}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="tripPrice">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Rate
+              </th>
+              <td mat-cell *matCellDef="let row">{{ row.tripPrice }}</td>
+            </ng-container>
+            <ng-container matColumnDef="capacity">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Capacity
+              </th>
+              <td mat-cell *matCellDef="let row">{{ row.capacity }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="tripStatus">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Status
+              </th>
+              <td mat-cell *matCellDef="let row">{{ row.tripStatus }}</td>
+            </ng-container>
+            <ng-container matColumnDef="vehicleName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Vehicle Name
+              </th>
+              <td mat-cell *matCellDef="let row">{{ row.vehicleName }}</td>
+            </ng-container>
+            <ng-container matColumnDef="vehicleDetails">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Vehicle Details
+              </th>
+              <td mat-cell *matCellDef="let row">{{ row.vehicleDetails }}</td>
+            </ng-container>
+           
+
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Action
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <button mat-icon-button (click)="viewBooking(row)" color="primary">
+                  View Bookings
+                </button>
+              </td>
+            </ng-container>
+           
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+            <!-- Row shown when there is no matching data. -->
+            <!-- <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">
+                No data matching the filter "{{ input.value }}"
+              </td>
+            </tr> -->
+          </table>
+
+          <mat-paginator
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            aria-label="Select page of users"
+          ></mat-paginator>
+        </div>
+      </div>
     </div>
   </mat-drawer-content>
 </mat-drawer-container>

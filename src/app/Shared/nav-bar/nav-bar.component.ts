@@ -9,11 +9,12 @@ import { LoginService } from 'src/app/services/login.service';
 export class NavBarComponent implements OnInit {
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   loggedIn=false;
+  admin=false;
   constructor(private loginService:LoginService) { }
 
   ngOnInit(): void {
     this.loggedIn=this.loginService.isLoggedIn();
-
+    this.admin=this.loginService.isadmin();
   }
   toggleSideBar() {
     this.toggleSideBarForMe.emit();

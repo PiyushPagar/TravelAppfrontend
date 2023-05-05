@@ -30,6 +30,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import { CommonModule } from '@angular/common';
+import { ViewRideComponent } from './components/view-ride/view-ride.component';
+import { ViewImageComponent } from './components/view-image/view-image.component';
+import { UserAllBookingComponent } from './components/user-all-booking/user-all-booking.component';
+import { AddNewTripComponent } from './components/add-new-trip/add-new-trip.component';
+import { DateTimePickerModule } from 'ngx-bootstrap/datetime-picker';
 
 
 
@@ -42,10 +47,15 @@ import { CommonModule } from '@angular/common';
     DriverDashboardComponent,
     ClientDashboardComponent,
     ClientRegistrationComponent,
+    ViewRideComponent,
+    ViewImageComponent,
+    UserAllBookingComponent,
+    AddNewTripComponent,
     
   ],
   imports: [
     MatMenuModule,
+    DateTimePickerModule,
     MatListModule,
     BrowserAnimationsModule,
     BrowserModule,

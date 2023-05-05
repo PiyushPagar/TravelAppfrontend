@@ -9,6 +9,7 @@ import { AdminGuard } from './services/admin.guard';
 import { AuthGuard } from './services/auth.guard';
 import { RoleGuard } from './services/role.guard';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { UserAllBookingComponent } from './components/user-all-booking/user-all-booking.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -25,6 +26,11 @@ const routes: Routes = [
   {
     path: 'clientdashboard',
     component: ClientDashboardComponent,
+    canActivate: [AuthGuard, RoleGuard],
+  },
+  {
+    path: 'userallbookings',
+    component: UserAllBookingComponent,
     canActivate: [AuthGuard, RoleGuard],
   },
   {
