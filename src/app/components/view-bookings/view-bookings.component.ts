@@ -27,13 +27,32 @@ export class ViewBookingsComponent implements OnInit {
       'pickupStatus',
       'createdDate',
       'email',
-      'mobileNo',
-      
+      'mobileNo'
     ];
 
    
   ngOnInit(): void {
+       this.getAllBookingbyId(this.viewRide)
+  }
 
+
+  getAllBookingbyId( data:any) {
+    const tripId=data.id;
+    return this.http.get<any>('http://localhost:9190/user/getBookingByTripId/' + 1).subscribe({
+      next: (res) => {
+        console.log(res);
+        console.log("try");
+        console.log(res.records);
+        //console.log(this.searchForm.value);
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
+      error: () => {
+        //alert("error");
+        console.log('error');
+      },
+    });
   }
 
 }

@@ -101,7 +101,7 @@ export class DriverDashboardComponent implements OnInit {
   viewBooking(row: any) {
     this.dialog
       .open(ViewBookingsComponent, {
-        width: '40%',
+        width: '45%',
         data: { parent: this,data:row},
       })
       .afterClosed()
