@@ -18,7 +18,7 @@ export class ViewBookingsComponent implements OnInit {
   constructor(private router: Router,
     private dialog: MatDialog,
     private dailogRef: MatDialogRef<ViewBookingsComponent>,
-    @Inject(MAT_DIALOG_DATA) public viewRide:Number, private http: HttpClient) { }
+    @Inject(MAT_DIALOG_DATA) public viewRide:any, private http: HttpClient) { }
 
 
     displayedColumns: string[] = [
@@ -36,9 +36,9 @@ export class ViewBookingsComponent implements OnInit {
   }
 
 
-  getAllBookingbyId( data:any) {
-    const tripId=data.id;
-    return this.http.get<any>('http://localhost:9190/user/getBookingByTripId/' + 1).subscribe({
+  getAllBookingbyId( viewRide:any) {
+    const tripId=viewRide.data.id;
+    return this.http.get<any>('http://localhost:9190/user/getBookingByTripId/' + tripId).subscribe({
       next: (res) => {
         console.log(res);
         console.log("try");
