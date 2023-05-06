@@ -34,7 +34,10 @@ import { ViewRideComponent } from './components/view-ride/view-ride.component';
 import { ViewImageComponent } from './components/view-image/view-image.component';
 import { UserAllBookingComponent } from './components/user-all-booking/user-all-booking.component';
 import { AddNewTripComponent } from './components/add-new-trip/add-new-trip.component';
-import { DateTimePickerModule } from 'ngx-bootstrap/datetime-picker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ViewBookingsComponent } from './components/view-bookings/view-bookings.component';
+
+
 
 
 
@@ -51,11 +54,12 @@ import { DateTimePickerModule } from 'ngx-bootstrap/datetime-picker';
     ViewImageComponent,
     UserAllBookingComponent,
     AddNewTripComponent,
+    ViewBookingsComponent,
     
   ],
   imports: [
+    MatDatepickerModule,
     MatMenuModule,
-    DateTimePickerModule,
     MatListModule,
     BrowserAnimationsModule,
     BrowserModule,

@@ -23,27 +23,31 @@
       />
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Trip StartTime</mat-label>
+      <mat-label>start time : 2023-04-23 12:25:30</mat-label>
       <input
         [(ngModel)]="newTripCredentials.tripStartTime"
         required
         formControlName="tripStartTime"
         matInput
-        placeholder=""
+        placeholder="2023-04-23 10:12:13"
         type="email"
       />
     </mat-form-field>
+
     <mat-form-field appearance="outline">
-      <mat-label>Trip EndTime</mat-label>
+      <mat-label>end time : 2023-04-23 14:12:46</mat-label>
       <input
         [(ngModel)]="newTripCredentials.tripEndTime"
         required
         formControlName="tripEndTime"
         matInput
-        placeholder="eg : 1234567890"
+        placeholder="2023-04-23 12:12:13"
         type="text"
       />
     </mat-form-field>
+   
+
+
     <mat-form-field appearance="outline">
       <mat-label>Capacity</mat-label>
       <input

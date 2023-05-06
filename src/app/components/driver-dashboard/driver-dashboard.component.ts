@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AddNewTripComponent } from '../add-new-trip/add-new-trip.component';
+import { ViewBookingsComponent } from '../view-bookings/view-bookings.component';
 
 @Component({
   selector: 'app-driver-dashboard',
@@ -45,9 +46,11 @@ export class DriverDashboardComponent implements OnInit {
     'tripStatus',
     'vehicleName',
     'vehicleDetails',
+   
     'action'
-    
   ];
+
+  // 'edit',
 
   getAllTrips() {
     var userids=localStorage.getItem('id');
@@ -83,11 +86,22 @@ export class DriverDashboardComponent implements OnInit {
       });
   }
 
-
-  viewBooking(row: any) {
+  editStatus() {
     this.dialog
       .open(AddNewTripComponent, {
         width: '30%',
+      })
+      .afterClosed()
+      .subscribe(() => {
+        this.getAllTrips();
+      });
+  }
+
+
+  viewBooking(row: any) {
+    this.dialog
+      .open(ViewBookingsComponent, {
+        width: '40%',
         data: { parent: this,data:row},
       })
       .afterClosed()
